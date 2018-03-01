@@ -1,0 +1,34 @@
+<section class="guides">
+    <div class="container margin_150">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h1 class="guides_tittle">Help center</h1>
+                <p class="guides_desc">{{hc_show.question.title}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="faq-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumbs">
+                        <li>
+                            <a ui-sref="main-layout.hc_index">Energy Premier Help Center</a>
+                        </li>
+                        <li>
+                            {{hc_show.question.category.name}}
+                        </li>
+                        <li>
+                            {{hc_show.question.title}}
+                        </li>
+                    </ol>
+                </div>
+                <h1>{{hc_show.question.title}}</h1>
+                <div ng-bind-html="hc_show.question.body">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

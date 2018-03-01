@@ -1,0 +1,78 @@
+<section class="faq">
+	<div class="container margin_150">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="search_container">
+					<h1>How can we help?</h1>
+					<form ng-submit="hc_index.submitSearchForm()" class="search">
+						<input ng-model="hc_index.dataModel.search" type="search" name="query" id="query" placeholder="Search anything" class="ui-autocomplete-input" autocomplete="off">
+					</form>
+					<div class="search_topics">
+						<strong>Popular help topics:</strong>
+						<a ng-click="hc_index.dataModel.search = 'request'; hc_index.submitSearchForm()" href="javascript:void(0);">request</a>,
+						<a ng-click="hc_index.dataModel.search = 'forgot password'; hc_index.submitSearchForm()" href="javascript:void(0);">forgot password</a>,
+						<a ng-click="hc_index.dataModel.search = 'pricing plans'; hc_index.submitSearchForm()" href="javascript:void(0);">pricing plans</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End section -->
+
+<section class="faq-results" ng-if="hc_index.searchedQuestions.length > 0">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<ul class="faq-list-results">
+					<li ng-repeat="item in hc_index.searchedQuestions track by $index">
+						<a ui-sref="main-layout.hc-show({questionId: item.id})">{{item.title}}</a>
+						<p class="search-result-meta">{{hc_index.plainText[$index].length > 165 ? (hc_index.plainText[$index]).substring(0, 165) + ' ...' : hc_index.plainText[$index]}}</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End section -->
+
+<section class="faq-results" ng-show="hc_index.searchedQuestions.length < 1">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h4>No results found.</h4>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End section -->
+
+<section class="faq-popular" ng-hide="hc_index.searchedQuestions.length > 0">
+	<div class="container">
+		<div class="row" ng-repeat="item in hc_index.questionList track by $index">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>{{item.category_name}}</h2>
+					</div>
+					<div class="col-md-4">
+						<ul>
+							<li ng-repeat="question in item.questions | limitTo: 4 : 0"><a ui-sref="main-layout.hc-show({questionId: question.id})">{{question.title}}</a></li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<ul>
+							<li ng-repeat="question in item.questions | limitTo: 4 : 4"><a ui-sref="main-layout.hc-show({questionId: question.id})">{{question.title}}</a></li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<ul>
+							<li ng-repeat="question in item.questions | limitTo: 4 : 8"><a ui-sref="main-layout.hc-show({questionId: question.id})">{{question.title}}</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End section -->
