@@ -47,6 +47,6 @@ Unsold tokens policy: Burned
 __Please visit__ https://tokensale.energypremier.com/ to get whitelisted, chat to us on telegram
 (https://t.me/tokensaleenergypremiercom) for more information or email us if you have other questions or proposals – we are happy to talk!
 
-Thank you,
-Energy Premier Team,
+Thank you,  
+Energy Premier Team,  
 tokensale@energypremier.com
